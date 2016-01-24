@@ -1,0 +1,19 @@
+{
+  "name": "teksavvy-usage",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "teksavvy-usage": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.9.0",
+    "ramda": "^0.19.1",
+    "yargs": "^3.32.0"
+  }
+}
