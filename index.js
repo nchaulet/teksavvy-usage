@@ -20,19 +20,32 @@ function displayResults(data) {
   console.log(`you consumed: ${data.OnPeakDownload}go`);
 }
 
-function displayError() {
+function displayError(e) {
+  console.log(e, e.stack);
   console.log('Impossible to get your data usage check your api key')
   displayUsage();
 }
 
 function displayUsage() {
-  console.log('teksavvy-usage --api-key=MY_API_KEY');
+  const doc = `
+  teksavvy-usage
+
+  Usage:
+    teksavvy-usage --api-key=<apiKey>
+
+  Options:
+    -h --help          Show this screen.
+    --api-key=<apiKey> TekSavvy Api Key
+  `;
+  console.log(doc);
 }
+
+const parseResult = R.compose(R.last, R.path(['data', 'value']));
 
 if (argv.apiKey) {
   requestUsage(argv.apiKey)
-    .then(R.path(['data', 'value']))
-    .then(R.last)
+    .then(parseResult)
+    .then(console.log)
     .then(displayResults)
     .catch(displayError);
 } else {
