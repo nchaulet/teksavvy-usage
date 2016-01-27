@@ -1,7 +1,7 @@
 {
   "name": "teksavvy-usage",
   "version": "0.0.0",
-  "description": "",
+  "description": "Simple cli tool to check your teksavvy usage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,10 @@
   "bin": {
     "teksavvy-usage": "./index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/nchaulet/teksavvy-usage",
+  "bugs": "https://github.com/nchaulet/teksavvy-usage/issues",
+  "author": "nchaulet",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.9.0",
     "ramda": "^0.19.1",
