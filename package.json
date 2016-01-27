@@ -1,6 +1,6 @@
 {
   "name": "teksavvy-usage",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple cli tool to check your teksavvy usage",
   "main": "index.js",
   "scripts": {
