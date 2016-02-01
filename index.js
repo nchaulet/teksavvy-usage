@@ -45,7 +45,6 @@ const parseResult = R.compose(R.last, R.path(['data', 'value']));
 if (argv.apiKey) {
   requestUsage(argv.apiKey)
     .then(parseResult)
-    .then(console.log)
     .then(displayResults)
     .catch(displayError);
 } else {
