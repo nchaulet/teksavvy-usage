@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const axios = require('axios');
 const argv = require('yargs').argv;
 const R = require('ramda');
@@ -15,8 +17,20 @@ function requestUsage(apiKey) {
   });
 }
 
+function leftPad(number) {
+  let str = number.toString();
+
+  return str.length < 2 ? `0${str}` : str;
+}
+
+function parseAndformatDate(raw_date) {
+  const date = new Date(raw_date);
+
+  return `${date.getFullYear()}-${leftPad(date.getMonth())}-${leftPad(date.getDay())}`;
+}
+
 function displayResults(data) {
-  console.log(`for the period from ${data.StartDate} to ${data.EndDate}`);
+  console.log(`for the period from ${parseAndformatDate(data.StartDate)} to ${parseAndformatDate(data.EndDate)}`);
   console.log(`you consumed: ${data.OnPeakDownload}go`);
 }
 
