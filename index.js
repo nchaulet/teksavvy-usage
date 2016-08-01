@@ -24,9 +24,7 @@ function leftPad(number) {
 }
 
 function parseAndformatDate(raw_date) {
-  const date = new Date(raw_date);
-
-  return `${date.getFullYear()}-${leftPad(date.getMonth())}-${leftPad(date.getDay())}`;
+  return raw_date.substr(0, 10);
 }
 
 function displayResults(data) {
