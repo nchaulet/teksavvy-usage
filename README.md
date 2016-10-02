@@ -19,4 +19,6 @@ npm install -g teksavvy-usage
   Options:
     -h --help          Show this screen.
     --api-key=<apiKey> TekSavvy Api Key
+
+  you could also specify api key using env varibale TEKSAVVY_APIKEY
 ```

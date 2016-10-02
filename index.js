@@ -12,7 +12,7 @@ function requestUsage(apiKey) {
     method: 'get',
     url: 'https://api.teksavvy.com/web/Usage/UsageSummaryRecords?$filter=IsCurrent%20eq%20true',
     headers: {
-      'TekSavvy-APIKey': argv.apiKey
+      'TekSavvy-APIKey': apiKey
     }
   });
 }
@@ -48,14 +48,18 @@ function displayUsage() {
   Options:
     -h --help          Show this screen.
     --api-key=<apiKey> TekSavvy Api Key
+
+  you could also specify api key using env varibale TEKSAVVY_APIKEY
   `;
   console.log(doc);
 }
 
 const parseResult = R.compose(R.last, R.path(['data', 'value']));
 
-if (argv.apiKey) {
-  requestUsage(argv.apiKey)
+const apiKey = argv.apiKey || process.env.TEKSAVVY_APIKEY;
+
+if (apiKey) {
+  requestUsage(apiKey)
     .then(parseResult)
     .then(displayResults)
     .catch(displayError);
